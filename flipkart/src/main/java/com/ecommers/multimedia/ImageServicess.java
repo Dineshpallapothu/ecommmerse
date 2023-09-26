@@ -20,8 +20,8 @@ public class ImageServicess {
     public String upload(MultipartFile multipartFile) throws IOException {
         String path1=path+ multipartFile.getOriginalFilename();
        ImageExample imageExample= imageReposs.save(ImageExample.builder().path(path1).name(multipartFile.getOriginalFilename()).type(multipartFile.getContentType()).build());
-        multipartFile.transferTo(new File(path1));//it will transfer the file into the path folder
-        if(imageReposs!=null){
+        multipartFile.transferTo(new File(path1));//it will transfer the file into the path folder  
+        if(imageReposs!=null){//check the condition
             return "success";
         }
         else {
