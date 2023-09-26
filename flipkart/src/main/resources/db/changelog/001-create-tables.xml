@@ -1,0 +1,232 @@
+<!--<databaseChangeLog-->
+<!--        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"-->
+<!--        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-->
+<!--        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">-->
+<!--    <changeSet id="10" author="Dinesh">-->
+<!--        <createTable tableName="profile">-->
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"></constraints>-->
+<!--            </column>-->
+<!--            <column name="name" type="varchar(60)">-->
+<!--            </column>-->
+<!--            <column name="email" type="varchar(80)">-->
+<!--                <constraints unique="true"></constraints>-->
+<!--            </column>-->
+<!--            <column name="mobile" type="varchar(10)"></column>-->
+<!--            <column name="password" type="varchar(255)"></column>-->
+<!--            <column name="role" type="varchar(50)"></column>-->
+<!--        </createTable>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="10-1" author="dinesh">-->
+
+<!--        <addAutoIncrement columnDataType="int"-->
+<!--                          columnName="id"-->
+<!--                          generationType="ALWAYS"-->
+<!--                          incrementBy="1"-->
+<!--                          startWith="1201"-->
+<!--                          tableName="profile"/>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="1234" author="dinesh">-->
+<!--        <createTable tableName="items">-->
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"></constraints>-->
+<!--            </column>-->
+<!--            <column name="name" type="varchar(60)">-->
+<!--            </column>-->
+<!--            <column name="category" type="varchar(60)"></column>-->
+<!--            <column name="price" type="int"></column>-->
+<!--            &lt;!&ndash;            <column name="cart_id" type="int"></column>&ndash;&gt;-->
+
+<!--        </createTable>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="1234-1" author="dinesh">-->
+
+<!--        <addAutoIncrement columnDataType="int"-->
+<!--                          columnName="id"-->
+<!--                          generationType="ALWAYS"-->
+<!--                          incrementBy="1"-->
+<!--                          startWith="301"-->
+<!--                          tableName="items"/>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="demo" author="dinesh">-->
+<!--        <createTable tableName="cart">-->
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"></constraints>-->
+<!--            </column>-->
+
+<!--            <column name="profile_id" type="int">-->
+<!--            </column>-->
+<!--            <column name="item_id" type="int"></column>-->
+<!--            &lt;!&ndash;            <column name="total_price" type="bigint"></column>&ndash;&gt;-->
+
+<!--        </createTable>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="demo-1" author="dinesh">-->
+
+<!--        <addAutoIncrement columnDataType="int"-->
+<!--                          columnName="id"-->
+<!--                          generationType="ALWAYS"-->
+<!--                          incrementBy="1"-->
+<!--                          startWith="101"-->
+<!--                          tableName="cart"/>-->
+
+<!--    </changeSet>-->
+
+
+<!--    <changeSet id="9876" author="dinesh">-->
+<!--        <createTable tableName="wishlist">-->
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"></constraints>-->
+<!--            </column>-->
+<!--            <column name="item_id" type="int">-->
+
+<!--            </column>-->
+<!--            <column name="item_name" type="varchar(80)"></column>-->
+<!--            <column name="profile_id" type="int">-->
+
+<!--            </column>-->
+<!--        </createTable>-->
+
+
+<!--        <addForeignKeyConstraint baseTableName="wishlist" baseColumnNames="item_id" constraintName="wish_fk_r"-->
+<!--                                 referencedTableName="items"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+<!--        <addForeignKeyConstraint baseTableName="wishlist" baseColumnNames="profile_id" constraintName="wish_fk_t"-->
+<!--                                 referencedTableName="profile"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="9876-1" author="dinesh">-->
+
+<!--        <addAutoIncrement columnDataType="int"-->
+<!--                          columnName="id"-->
+<!--                          generationType="ALWAYS"-->
+<!--                          incrementBy="1"-->
+<!--                          startWith="101"-->
+<!--                          tableName="wishlist"/>-->
+
+<!--    </changeSet>-->
+
+<!--    <changeSet id="12" author="dinesh">-->
+<!--        <addForeignKeyConstraint baseTableName="cart" baseColumnNames="item_id" constraintName="cart_fk"-->
+<!--                                 referencedTableName="items"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+<!--        <addForeignKeyConstraint baseTableName="cart" baseColumnNames="profile_id" constraintName="cart_fk_pr"-->
+<!--                                 referencedTableName="profile"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+
+<!--    </changeSet>-->
+
+
+<!--    <changeSet id="56" author="dinesh">-->
+<!--        <createTable tableName="payment">-->
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"></constraints>-->
+<!--            </column>-->
+<!--            <column name="card_no" type="varchar(80)">-->
+
+<!--            </column>-->
+<!--            <column name="cart_id" type="int">-->
+
+<!--            </column>-->
+<!--            <column name="status" type="varchar(50)"></column>-->
+<!--            <column name="profile_id" type="int"></column>-->
+<!--        </createTable>-->
+<!--        <addForeignKeyConstraint baseTableName="Payment1" baseColumnNames="cart_id" constraintName="payemnt_fk_o"-->
+<!--                                 referencedTableName="cart"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+<!--        <addForeignKeyConstraint baseTableName="Payment1" baseColumnNames="profile_id" constraintName="payment_fk_ui"-->
+<!--                                 referencedTableName="profile"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+<!--    </changeSet>-->
+<!--&lt;!&ndash;    <changeSet id="0987" author="dinesh" >&ndash;&gt;-->
+<!--&lt;!&ndash;        <addColumn&ndash;&gt;-->
+<!--&lt;!&ndash;                tableName="Payment">&ndash;&gt;-->
+<!--&lt;!&ndash;            <column name="profile_id" type="int"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </addColumn>&ndash;&gt;-->
+<!--&lt;!&ndash;    </changeSet>&ndash;&gt;-->
+<!--&lt;!&ndash;    <changeSet id="7892" author="dinesh">&ndash;&gt;-->
+<!--&lt;!&ndash;        &ndash;&gt;-->
+<!--&lt;!&ndash;    </changeSet>&ndash;&gt;-->
+
+
+
+
+<!--    <changeSet id="12-1" author="dinesh">-->
+
+<!--        <addAutoIncrement columnDataType="int"-->
+<!--                          columnName="id"-->
+<!--                          generationType="ALWAYS"-->
+<!--                          incrementBy="1"-->
+<!--                          startWith="1301"-->
+<!--                          tableName="payment"/>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="7657" author="dinesh">-->
+<!--        <createTable tableName="order">-->
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"></constraints>-->
+<!--            </column>-->
+<!--            <column name="profile_id" type="int">-->
+
+<!--            </column>-->
+<!--            <column name="name" type="varchar(50)"></column>-->
+<!--            <column name="item_id" type="int">-->
+
+<!--            </column>-->
+<!--            <column name="payment_id" type="int">-->
+
+<!--            </column>-->
+<!--        </createTable>-->
+<!--        <addForeignKeyConstraint baseTableName="order" baseColumnNames="profile_id" constraintName="order_fk_u"-->
+<!--                                 referencedTableName="profile"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+<!--        <addForeignKeyConstraint baseTableName="order" baseColumnNames="payment_id" constraintName="order_fk_p"-->
+<!--                                 referencedTableName="Payment1"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+<!--        <addForeignKeyConstraint baseTableName="order" baseColumnNames="item_id" constraintName="order_fk_ui"-->
+<!--                                 referencedTableName="items"-->
+<!--                                 referencedColumnNames="id"></addForeignKeyConstraint>-->
+
+<!--    </changeSet>-->
+<!--    <changeSet id="7657-2" author="dinesh">-->
+
+<!--        <addAutoIncrement columnDataType="int"-->
+<!--                          columnName="id"-->
+<!--                          generationType="ALWAYS"-->
+<!--                          startWith="1551"-->
+<!--                          incrementBy="1"-->
+<!--                          tableName="order"/>-->
+
+<!--    </changeSet>-->
+
+<!--    <changeSet author="dinesh" id="addColumn">-->
+<!--        <addColumn-->
+<!--                tableName="cart">-->
+<!--            <column name="item_name" type="varchar(255)"/>-->
+
+<!--        </addColumn>-->
+<!--    </changeSet>-->
+<!--&lt;!&ndash;        <changeSet author="dinesh" id="add">&ndash;&gt;-->
+<!--&lt;!&ndash;            <addColumn&ndash;&gt;-->
+<!--&lt;!&ndash;                    tableName="wishlist1">&ndash;&gt;-->
+<!--&lt;!&ndash;                <column name="item_name" type="varchar(255)"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </addColumn>&ndash;&gt;-->
+<!--&lt;!&ndash;        </changeSet>&ndash;&gt;-->
+
+
+
+
+
+
+
+<!--</databaseChangeLog>-->
+
