@@ -14,15 +14,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Util {
 @Autowired
- private  ProfileRepo profileRepo;
+ProfileRepo profileRepo;
 
 
 
 
     public  Profile getCurrentUser() {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        Profile profile=profileRepo.findByEmail(email).orElseThrow(()->new UsernameNotFoundException("User Not Login"));
-        return profile;
+        return profileRepo.findByEmail(email).orElseThrow(()->new UsernameNotFoundException("User Not Login"));
     }
     public  Payment checkStatus(Payment payment){
         String status=String.valueOf(payment.getStatus());
